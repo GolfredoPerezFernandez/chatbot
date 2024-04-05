@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useReducer, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { set } from 'nprogress';
 import { useMoralis } from 'react-moralis';
 const HANDLERS = {
   INITIALIZE: 'INITIALIZE',

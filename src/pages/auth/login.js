@@ -17,8 +17,8 @@ import {
   TextField,
   Typography
 } from '@mui/material';
-import { useAuth } from 'src/hooks/use-auth';
-import { Layout as AuthLayout } from 'src/layouts/auth/layout';
+import { useAuth } from '../../hooks/use-auth';
+import { Layout as AuthLayout } from '../../layouts/auth/layout';
 import LoadingButton from '@mui/lab/LoadingButton';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 const Page = () => {

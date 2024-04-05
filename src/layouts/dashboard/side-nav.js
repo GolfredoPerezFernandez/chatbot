@@ -33,8 +33,8 @@ import {
   Typography,
   useMediaQuery
 } from '@mui/material';
-import { Logo } from 'src/components/logo';
-import { Scrollbar } from 'src/components/scrollbar';
+import { Logo } from '../../components/logo';
+import { Scrollbar } from '../../components/scrollbar';
 import { itemsTeacher,itemsRegular,itemsStudent,itemsManagerMoveOn, itemsAfterSchool, itemsMoveOnSchool, itemsTeacherMoveOn, itemsChatbot, itemsCoordinator, itemsAdministration } from './config';
 import { itemsAdmin } from './config';
 import { itemsManagers } from './config';

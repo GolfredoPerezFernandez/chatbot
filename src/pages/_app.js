@@ -6,16 +6,16 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import { AuthConsumer, AuthProvider } from 'src/contexts/auth-context';
-import { useNProgress } from 'src/hooks/use-nprogress';
+import { useNProgress } from '../hooks/use-nprogress';
 import { createTheme } from '../theme';
-import { createEmotionCache } from 'src/utils/create-emotion-cache';
+import { createEmotionCache } from '../utils/create-emotion-cache';
 import 'simplebar-react/dist/simplebar.min.css';
 import Script from 'next/script';
 
 
 import "./styles.css";
 import { MoralisProvider } from "react-moralis";
+import { AuthConsumer, AuthProvider } from '../contexts/auth-context';
 const clientSideEmotionCache = createEmotionCache();
 
 const SplashScreen = () => null;
