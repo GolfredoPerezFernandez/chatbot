@@ -18,8 +18,6 @@ import dynamic from "next/dynamic";
 import DID_API from './api.json' assert { type: 'json' };
 import { SayButton } from 'react-say';
 import { useEffect, useCallback, useState } from 'react';
-import MicIcon from '@mui/icons-material/Mic';
-import Button from '@mui/material/Button';
 const Vocal = dynamic(
   () => import("@untemps/react-vocal"),
   {
