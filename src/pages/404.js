@@ -7,7 +7,7 @@ const Page = () => (
   <>
     <Head>
       <title>
-        404 | MoveOnAcademy
+        404 | DAIOFF
       </title>
     </Head>
     <Box

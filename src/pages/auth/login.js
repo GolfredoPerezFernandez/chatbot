@@ -80,7 +80,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Ingresar | MoveOnAcademy
+          Ingresar | DAIOFF
         </title>
       </Head>
       <Box
@@ -120,7 +120,7 @@ const Page = () => {
              sx={{ color: 'black' }}
              target="_blank"
            >
-            MoveOnAcademy
+            DAIOFF
            </Box>
          </Typography>
          <Typography

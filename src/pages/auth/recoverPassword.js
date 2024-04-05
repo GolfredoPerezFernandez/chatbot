@@ -52,7 +52,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Recuperar Cuenta | MoveOnAcademy
+          Recuperar Cuenta | DAIOFF
         </title>
       </Head>
       <Box

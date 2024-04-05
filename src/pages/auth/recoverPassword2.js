@@ -54,7 +54,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Recover Login | MoveOnAcademy
+          Recover Login | DAIOFF
         </title>
       </Head>
       <Box

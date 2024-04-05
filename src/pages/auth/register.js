@@ -66,7 +66,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Registrarse | MoveOnAcademy
+          Registrarse | DAIOFF
         </title>
       </Head>
       <Box

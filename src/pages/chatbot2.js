@@ -50,15 +50,45 @@ useEffect(()=>{
       }));
     });
   const [history, setHistory] = useState([
-    {role: "user", content: ``},
+    {role: "user", content: `Hello you are chatbot from now so MOVE ON ACADEMY is a Language Academy that through its teaching methods
+    and programs, facilitates both the learning of foreign languages and the
+    promotion of human values. The Academy is designed to attend to all audiences, this is a 360º academy
+    concept, which covers all ages, starting at 4 years old.
+    In our personalized and family atmosphere, we encourage that each student
+    can acquire language skills (listening, speaking, reading, and writing) through
+    a system of comfortable classes. The academy stimulates real situations and
+    allows students to place themselves in cultural contexts related to the use of
+    the language.  HOW DID OUR STORY BEGIN?: Move On Venezuela results from the materialization of an academy concept that seeks
+    excellence and continuous improvement through language education.
+    The city of Mérida in Venezuela, due to its history as a cultural and academic center,
+    offered a suitable environment for the beginning of this great challenge.
+    Our unique teaching method was the springboard to position ourselves in the environment
+    of this Andean city, certainly distinguished by its academic demands. This is how
+    Move On Venezuela was born, in February 2013, with only a few teachers, four classrooms
+    and a few dozen students.
+    Today we have hundreds of students, a historical reach of thousands, dozens of teachers
+    and various locations. In 2016 it was franchised for the first time and in 2017 for the second
+    time in another country: Bogotá, Colombia. In 2020 for the third time, we opened a new
+    branch in the city of El Vigía, Venezuela... 
+    
+    FOUNDER: VERÓNICA GONZÁLEZ OSORIO: Verónica started this Academy with much desire to
+    establish new quality standards for Merida
+    education. An academy with avant-garde
+    technology in which students felt in a family
+    atmosphere, pleasant and full of values, including a
+    team of specially trained teachers.
+    
+    The fighting spirit, perseverance, energy and work
+    capacity that Verónica has put into this Academy,
+    make Move On the best option to learn languages.`},
     {
       role: "assistant",
-      content: "Bievenidos al chatbot sobre las leyes del trabajo en españa",
+      content: "Welcome to the chatbot of MOA. Feel free to speak with Alice",
     },
   ]);
   
   if (DID_API.key == '🤫') alert('Please put your API key inside ./api.json and restart.');
-  const [isLoading, setLoading] = useState(false);
+  const [isLoadingAudio, setLoadingAudio] = useState(false);
   const recorderControls = useAudioRecorder()
   const blobToBase64 = (blob) => {
     const reader = new FileReader();
@@ -142,6 +172,7 @@ useEffect(()=>{
   let talkButton;
   let peerStatusLabel;
 
+  const [loading,setLoading]=useState(false)
 
 const [iniciando,setIniciando]=useState(false)
 
@@ -576,9 +607,22 @@ connectionInit()
 
   let lang=user.get("chatbotLang")
 
+  let providerList={ type: 'microsoft', voice_id: 'en-US-JennyNeural' }
+  if(lang=="es-ES"){
      providerList={ type: 'microsoft', voice_id: 'es-ES-AbrilNeural' }
 
-  
+  }else if(lang=="it-IT"){
+    providerList={ type: 'microsoft', voice_id: 'it-IT-IsabellaNeural' }
+    
+  }else if(lang=="pt-BR"){
+    providerList={ type: 'microsoft', voice_id: 'pt-BR-BrendaNeural' }
+  }
+  else if(lang=="en-US"){
+    providerList={ type: 'microsoft', voice_id: 'en-US-JennyNeural' }
+  }
+  console.log("providerList "+providerList)
+  console.log("values.lenguage "+lang)
+  console.log("providerList "+providerList)
 
   const talkResponse = await fetch(`${DID_API.url}/talks/streams/${newstreamID}`, {
     method: 'POST',
@@ -646,7 +690,7 @@ connectionInit()
     />
   )
 async function startTalk(){
-  setLoading(true)
+  
         // New from Jim 10/23 -- Get the user input from the text input field get ChatGPT Response
         const userInput = document.getElementById('user-input-field').value;
         document.getElementById('user-input-field').value = '';
@@ -661,13 +705,26 @@ async function startTalk(){
         // Print the openAIResponse to the console
         //
         console.log("responseFromOpenAI "+JSON.stringify(responseFromOpenAI))
+        let providerList={ type: 'microsoft', voice_id: 'en-US-JennyNeural' }
         console.log(" values.lenguage "+JSON.stringify(values.lenguage))
         let user=await Moralis.User.current()
   
         let lang=user.get("chatbotLang")
         
-         let  providerList={ type: 'microsoft', voice_id: 'es-ES-AbrilNeural' }
+        if(lang=="es-ES"){
+           providerList={ type: 'microsoft', voice_id: 'es-ES-AbrilNeural' }
       
+        } else if(lang=="it-IT") {
+          providerList={ type: 'microsoft', voice_id: 'it-IT-IsabellaNeural' }
+          
+        } else if(lang=="pt-BR") {
+          providerList={ type: 'microsoft', voice_id: 'pt-BR-BrendaNeural' }
+        } else if(lang=="en-US") {
+          providerList={ type: 'microsoft', voice_id: 'en-US-JennyNeural' }
+        }else{
+          providerList={ type: 'microsoft', voice_id: 'en-US-JennyNeural' }
+
+        }
 
         const talkResponse = await fetch(`${DID_API.url}/talks/streams/${newstreamID}`, {
           method: 'POST',
@@ -710,8 +767,6 @@ async function startTalk(){
           }),
   
         });
-        setLoading(false)
-
 }
   async function handleKeyUp(event) {
     if (event.key === 'Enter') {
@@ -751,8 +806,44 @@ async function startTalk(){
             alignItems:'center',margin:10}}>
                    <video  id="talk-video" alignSelf='center'  width="200" height="200" autoPlay></video>
                  </div>
-               
-                
+                 
+                 <TextField
+                  fullWidth
+                  label="Selecciona el Idioma"
+                  name="lenguage"
+                  onChange={handleChange}
+                  required
+                  select
+                  style={{
+                    paddingTop: 6,
+                    marginBottom: 10,
+                    width:200,marginLeft:10
+                  }}
+                  SelectProps={{ native: true }}
+                  value={values.lenguage}
+                >
+                  {genders.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </TextField>
+                <Vocal
+					onStart={_onVocalStart}
+          timeout={30000}
+          lang={values.lenguage}
+          onEnd={_onVocalStart}
+          onError={_onVocalError}
+          height={40}
+          width={40}
+					onResult={_onVocalResult}
+					style={{  position: 'absolute',  marginTop: 10 }}
+				>
+          {(start, stop, isStarted) => (
+				<button style={{ padding:15 }} onClick={isStarted ? stop : start}>
+					{isStarted ? <Stop /> : <Play />}
+				</button>
+			)}</Vocal> 
       <MainContainer style={{
             justifyContent:'center',
             alignSelf:'center',
@@ -762,7 +853,7 @@ async function startTalk(){
         
           <MessageList style={{ 
             justifyContent:'center',
-            alignItems:'center',height:"40%" ,}}>
+            alignItems:'center',height:"40%" }}>
             {history.map((message, index) => (
               index != 0?
               <Stack style={{
@@ -773,7 +864,7 @@ async function startTalk(){
                 <Message
                   key={index}
                   name="userResponse"
-                  style={{marginRight:20,width:"80%"}}
+                  style={{marginRight:20}}
                   model={{
                     sentTime: "just now",
                     message: message.role + ": " + message.content,
@@ -785,28 +876,22 @@ async function startTalk(){
               </Stack>:null
             ))}
           </MessageList>
-         {iniciando?null: <div as={MessageInput} class="fixed bottom-0  pb-safe w-full " style={{
+         {iniciando?null: <div as={MessageInput} style={{
             display: "flex",
             flexDirection: "row",
             flex: 1,
-            position:"fixed",
-            bottom:15,
-            paddingBottom:"safe",
-            width:"80%",
+            width:"100%",
             justifyContent:'center',
             alignItems:'center',
             paddingRight:90,
-
           }}>
             
                      
       
-        <input  onKeyUp={handleKeyUp}  type="text" id="user-input-field" placeholder="Pregunta cualquier duda"/>
+        <input  onKeyUp={handleKeyUp}  type="text" id="user-input-field" placeholder="I am your english assistance..."/>
         <div tabIndex="0">
-                {isLoading?<CircularProgress />:
-                  <button style={{marginLeft:-80}}  disabled={!connected} onClick={startTalk} id="talk-button" type="button">Send</button>
+                 <button style={{marginLeft:-80}}  disabled={!connected} onClick={startTalk} id="talk-button" type="button">Send</button>
 
-                } 
  </div>
           </div>
          }

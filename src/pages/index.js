@@ -13,7 +13,7 @@ const Page = () => {
   return   <>
     <Head>
       <title>
-      Coworking | MoveOnAcademy
+      Coworking | DAIOFF
       </title>
     </Head>
     <Box

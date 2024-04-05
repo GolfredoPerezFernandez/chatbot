@@ -33,7 +33,7 @@ const App = (props) => {
       <Head>
         
         <title>
-          MoveOnAcademy
+          DAIOFF
         </title>
         <meta
           name="viewport"

@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import NextLink from 'next/link';
 import { Box, Typography,CardMedia, Unstable_Grid2 as Grid } from '@mui/material';
 // TODO: Change subtitle text
+import logo from './logo.png';
+
 import { useMediaQuery } from 'react-responsive'
 export const Layout = (props) => {
   const { children } = props;
@@ -45,12 +47,13 @@ export const Layout = (props) => {
               sx={{
                 display: 'inline-flex',
                 height: 32,
-                width: 32
+                width: 320
               }}
             >
                <img
               alt=""
-              src="https://bafkreietgo6cgjuk7tymttexcap5h6tmfjuybzlfo7uqlkehwwvamkyvxq.ipfs.nftstorage.link/"
+              
+              src={"https://res.cloudinary.com/dug5cohaj/image/upload/v1712292239/mew2whjo7m3oemqpd7za.png"}
             />
             </Box>
           </Box>
@@ -61,7 +64,7 @@ export const Layout = (props) => {
           lg={6}
           sx={{
             alignItems: 'center',
-            background: 'radial-gradient(50% 50% at 50% 50%, #122647 0%, #090E23 100%)',
+            background: 'radial-gradient(50% 50% at 50% 50%, #C11616 0%, #7A0C0C 100%)',
             color: 'white',
             display: 'flex',
             justifyContent: 'center',
@@ -87,7 +90,7 @@ export const Layout = (props) => {
                 sx={{ color: '#15B79E' }}
                 target="_blank"
               >
-                MoveOnAcademy
+                DAIOFF
               </Box>
             </Typography>
             <Typography

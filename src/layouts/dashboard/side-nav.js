@@ -83,6 +83,7 @@ async function init(){
   const content = (
     <Scrollbar
       sx={{
+        
         height: '100%',
         '& .simplebar-content': {
           height: '100%'
@@ -94,6 +95,7 @@ async function init(){
     >
       <Box
         sx={{
+          
           display: 'flex',
           flexDirection: 'column',
           height: '100%'
@@ -108,12 +110,24 @@ async function init(){
               width: 300
             }}
           >
-            <Logo />
-          </Box>
+        <Box
+              href="/"
+              sx={{
+                display: 'inline-flex',
+                height: 32,
+                width: 320
+              }}
+            >
+               <img
+              alt=""
+              
+              src={"https://res.cloudinary.com/dug5cohaj/image/upload/v1712292239/mew2whjo7m3oemqpd7za.png"}
+            />
+            </Box>          </Box>
           <Box
             sx={{
               alignItems: 'center',
-              backgroundColor: 'rgba(255, 255, 255, 0.04)',
+              backgroundColor: '#F45252',
               borderRadius: 1,
               cursor: 'pointer',
               display: 'flex',
@@ -127,13 +141,13 @@ async function init(){
                 color="inherit"
                 variant="subtitle1"
               >
-                MoveOnAcademy
+                DAIOFF
               </Typography>
               <Typography
                 color="neutral.400"
                 variant="body2"
               >
-                Systema MOA
+                CHATBOT IA
               </Typography>
             </div>
           
