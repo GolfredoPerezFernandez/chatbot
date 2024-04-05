@@ -9,7 +9,6 @@ import { useWhisper } from '@chengsokdara/use-whisper'
 import styles from "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import { AudioRecorder, useAudioRecorder, } from 'react-audio-voice-recorder';
 import { async } from 'react-cloudinary-upload-widget';
-import OpenAI from 'openai';
 import { CircularProgress, Avatar,Stack, Typography, TextField } from '@mui/material';
 import user from '@mui/icons-material';
 import { Box } from '@mui/system';
