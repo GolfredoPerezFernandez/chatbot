@@ -102,7 +102,7 @@ const userInformation = {
  console.log(JSON.stringify(userInformation))
     let res=await Moralis.Cloud.run(
       "assistanceChat",
-      { history:history, userResponse:"hola te pasare mi informacion personal en un objecto toma lo q necesites "+JSON.stringify(userInformation)+"responde mi pregunta solamente :"+userMessage}
+      { history:history, userResponse:"hola te pasare mi informacion personal en un objecto toma lo q necesites responde en un maximo 360 caracteres "+JSON.stringify(userInformation)+"responde mi pregunta solamente :"+userMessage}
     );
     let respuesta=res
     .filter(message => message.role === 'assistant')
@@ -268,7 +268,6 @@ const [connected,setConnected]=useState(false)
       console.log(" values.lenguage "+JSON.stringify(values.lenguage))
       let user=await Moralis.User.current()
 
-      let lang=user.get("chatbotLang")
       
         let providerList={ type: 'microsoft', voice_id: 'es-ES-AbrilNeural' }
     
@@ -782,7 +781,7 @@ async function startTalk(){
         
           <MessageList style={{ 
             justifyContent:'center',
-            alignItems:'center',height:"40%" ,}}>
+            alignItems:'center',height:"40%" ,marginBottom:80}}>
             {history.map((message, index) => (
               index != 0?
               <Stack style={{
