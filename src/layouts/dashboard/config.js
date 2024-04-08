@@ -73,6 +73,30 @@ export const itemsAdminPro = [
         <UserPlusIcon />
       </SvgIcon>
     )
+  }, {
+    title: 'Informacion Personal',
+    path: '/personalInfo',
+    icon: (
+      <SvgIcon fontSize="small">
+        <UserPlusIcon />
+      </SvgIcon>
+    )
+  }, {
+    title: 'Datos del Contrato',
+    path: '/contractData',
+    icon: (
+      <SvgIcon fontSize="small">
+        <UserPlusIcon />
+      </SvgIcon>
+    )
+  }, {
+    title: 'Detalles del Contrato',
+    path: '/contractDetails',
+    icon: (
+      <SvgIcon fontSize="small">
+        <UserPlusIcon />
+      </SvgIcon>
+    )
   }
 ]
 export const itemsAdmin = [  

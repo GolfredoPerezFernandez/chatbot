@@ -78,11 +78,31 @@ useEffect(()=>{
   async function fetchOpenAIResponse(userMessage) {
   try{
     setValues({userResponse:""})
-
+    let user=await Moralis.User.current()
   
+
+const userInformation = {
+  name: user.get('name'),
+ lastname:  user.get('lastname'),
+  email: user.get('email'),
+  dni: user.get('dni'),
+  birthday: user.get('birthday'),
+  province: user.get('province'),
+  gender: user.get('gender'),
+  contractEnd: user.get('contractEnd'),
+  contractInit: user.get('contractInit'),
+  contractType: user.get('contractType'),
+  extraPayments: user.get('extraPayments'),
+  cotization:  user.get('cotization'),
+  syndicate: user.get('syndicate'),
+  weeklyHours: user.get('weeklyHours'),
+  salary: user.get('salary'),
+  jobinTesting: user.get('jobTest')
+ };
+ console.log(JSON.stringify(userInformation))
     let res=await Moralis.Cloud.run(
       "assistanceChat",
-      { history:history, userResponse:userMessage}
+      { history:history, userResponse:"hola te pasare mi informacion personal en un objecto toma lo q necesites "+JSON.stringify(userInformation)+"responde mi pregunta solamente :"+userMessage}
     );
     let respuesta=res
     .filter(message => message.role === 'assistant')
