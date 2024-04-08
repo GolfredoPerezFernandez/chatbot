@@ -208,7 +208,7 @@ init()
              
 <TextField
                   fullWidth
-                  label="Cargo "
+                  label="Profesion "
                   name="job"
                   multiline={true}
                   onChange={handleChange}
